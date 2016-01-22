@@ -1,11 +1,19 @@
 language: node_js
 node_js:
-  - "0.12"
-  - "0.10"
-  - "iojs"
+- '0.12'
+- '0.10'
+- iojs
 sudo: false
 cache:
   directories:
-    - node_modules
+  - node_modules
 notifications:
   email: false
+deploy:
+  provider: npm
+  email: huangtc@outlook.com
+  api_key:
+    secure: jypdlmPJeJ3dfhKRfBjq4qs6Scd1pfusYWkyMVZJQoAkWPVGi1HsuXZG6+SfSvBbq8P11kPkd1F8JD0cXuVlLoDUTKeO0dgtewZNEh/FcFeOaIuEvQXRHNHBwKGoBQED0FE+pXAR3ppB8nWSri5Ivj+O98Tvyy7kBxwSSRJ+lyDLE6+QkJUQIEGMNba534U04KJpAr/HLQ0jcMq9dJ9hQNNdugDqZFcI4+BZKDaeNtsNLFNRHAnAvf6sCCUeONUYgRQss//2IqNNVqOMYfaT9Cni3smhAqdwCZqX0IT90Py+8781lu3ZmLN5gGNotmuTivreSNY9s1orDyeEGMuAH8Lcsz5QO7nL9JZKRifWVio6C9hl6G5FsgSscvpePqoPLVjKm25jDkGV1Ztg0KqFlw7Y4xQDGjAxotnXp6aW8Fv8Zye9XJVj/Ave3KUdmSb4FhmOk0g65B2mIFiqAfvflv0uWhma1DI4Jtq/JvT5I2O+iVvRlrbsh7pSNFQFUEIPbaojtrimvFJDlD+C16b4rr709xviOvAoVNxUin0qVuFWi98k0M5ogS+t9WpzWEYKXkl+ReitXfnyqIwHOH5a7exf3PNf4c/soasjwHREz9BmbZ6ox9uuOqeEtPiFknR8g5bYR/0eOFHOpUU8FwbRCERwCY7iufSphl0RNfOoKaw=
+  on:
+    tags: true
+    repo: ctgnauh/hubot-aqi

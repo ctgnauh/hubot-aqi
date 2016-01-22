@@ -5,7 +5,7 @@
 #   None
 #
 # Commands:
-#   hubot aqi in <city> - Show AQI for city.
+#   hubot aqi in <city> speak <language> - Show AQI for city.
 #
 # Notes:
 #   This is an experimental script.
@@ -15,11 +15,30 @@
 
 aqicn = require 'aqicn'
 
+labels = {
+  en: ['AQI', 'Level', 'Health Implications', 'Cautionary Statement', 'PM2.5', 'PM10', 'O3', 'NO2', 'SO2', 'CO'],
+  cn: ['AQI', '等级', '对健康的影响', '建议采取的措施', 'PM2.5', 'PM10', 'O3', 'NO2', 'SO2', 'CO', '更新']
+}
+
 module.exports = (robot) ->
-  robot.respond /aqi in (.*)/i, (msg) ->
+  robot.respond /aqi in\s+([\w//]*)(?:\s+speak (english|chinese))?/i, (msg) ->
     city = msg.match[1]
-    aqicn.getAQIs city, 'en', (err, res) ->
-      if err
-        msg.send "sorry, there has something wrong..."
-      else
-        msg.send "#{res.city} AQI: #{res.aqi}\nLevel: #{res.level.name}\nHealth Implications: #{res.level.implication}\nCautionary Statement(for PM2.5): #{res.level.statement}\nPM2.5: #{res.pm25}\nPM10: #{res.pm10}\nO3: #{res.o3}\nNO2: #{res.no2}\nSO2: #{res.so2}\nCO: #{res.co}\nUpdated on #{res.time}"
+    lang = msg.match[2]
+    # console.log msg.match
+    if lang == 'chinese'
+      lang = 'cn'
+    else
+      lang = 'en'
+    if city
+      aqicn.getAQIs city, lang, (err, res) ->
+        if err
+          msg.send "sorry, there has something wrong..."
+        else
+          result = [res.aqi, res.level.name, res.level.implication, res.level.statement, res.pm25,
+          res.pm10, res.o3, res.no2, res.so2, res.co, res.time]
+          message = "#{res.city}\n"
+          for label in labels[lang]
+            message = "#{message}#{label}: #{result[labels[lang].indexOf label]}\n"
+          msg.send message
+    else
+      msg.send 'sorry, i cannot found it...'
