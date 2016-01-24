@@ -13,7 +13,7 @@
     "url": "https://github.com/ctgnauh/hubot-aqi/issues"
   },
   "dependencies": {
-    "aqicn": "0.0.5"
+    "aqicn": "latest"
   },
   "peerDependencies": {
     "hubot": "2.x"

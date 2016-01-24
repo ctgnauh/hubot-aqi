@@ -1,5 +1,6 @@
 language: node_js
 node_js:
+- 5.1.0
 - '0.12'
 - '0.10'
 - iojs
@@ -9,6 +10,8 @@ cache:
   - node_modules
 notifications:
   email: false
+  slack:
+    secure: T2F9oc5gx2GOH9ekgDfB/D39KNG+o5GD92EfYHGKUBQH+QdL23Z4vtQSn1GRnPznNlDLXt451o1ATcVogAOxCSCaxb5c4X5yBWKKYSKfPjrNET/WbIwF8Q3I0PdKaP7NqEWwesXmlG+ZQhDW6lyw8E+YdbyavKicJxJQnzKt/A0NZ3uUqall5sFHe6VT02kItVVuj4+05RnUOLtwmH/WnTGCJQgESWeKhmG5lRDwMKGnBjeelLkB4QXOmrEiUJiEgYHYMSVAYCgaXUG+HsxLIMhIV0t5Er3Atx4XbolghxF0aUmkHy9u9e7fYNjwaq2rcCvzbWuY228FgUSkJHwei+MQhEC5k7RUAQqvlHepB2eP+aeyR284rvo2YZZFPQvngefaySBxoo3vXudeuCbiQB8PQUj/9ULyIWOkZeEDCw0ozlDVitNQ0qFvGx50dV1VI2xbeYhKs8wfOf4/ZBCiDTeSbUnTnoxQ8IfQ8pRei8opTUPHY6XqCkdKy4tJn91rTBp0Wp+SUKGneVTHKpxvlL4Xs7ckBJ1TNxB9a0AE5qPZADll1tvNqwuLlptgP6H50xvR1IreCHlA5LTeiC8MKQrfnFfnk8dwqLwdLb1ifZ1ZKsd7OewbNPmSilKwIwtUZ0cuuBwZEtkEiYIvzIAenQib1hHWA6qXvmHWWxR59ac=
 deploy:
   provider: npm
   email: huangtc@outlook.com
