@@ -1,7 +1,7 @@
 {
   "name": "hubot-aqi",
   "description": "Hubot script to show Air Quality Index for some city",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "ctgnauh <huangtc@outlook.com>",
   "license": "MIT",
   "keywords": "aqi,aqicn,pollution,pm25,pm2.5,china,hubot,hubot-scripts",
