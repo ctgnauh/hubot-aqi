@@ -30,6 +30,7 @@ module.exports = (robot) ->
     else
       lang = 'en'
     if city
+      msg.send "fetching #{city} page. beo beo beo beo beep beep..."
       aqicn.getAQIs city, lang, (err, res) ->
         if err
           msg.send "sorry, there has something wrong..."
