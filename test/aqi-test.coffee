@@ -12,4 +12,4 @@ describe 'aqi', ->
     require('../src/aqi')(@robot)
 
   it 'registers a respond listener', ->
-    expect(@robot.respond).to.have.been.calledWith(/aqi in\s+([\w//]*)(?:\s+speak (english|chinese))?/i)
+    expect(@robot.respond).to.have.been.calledWith(/aqi\s+([\w//]*)(?:\s+(en|cn|jp|kr|fr|pl|hk|ru|es))?/i)
