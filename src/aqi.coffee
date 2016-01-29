@@ -43,3 +43,21 @@ module.exports = (robot) ->
           msg.send message
     else
       msg.send 'sorry, i cannot found it...'
+
+  robot.respond /aqi image\s+([\w//]*)(?:\s+speak (english|chinese))?/i, (msg) ->
+    city = msg.match[1]
+    lang = msg.match[2]
+    console.log lang
+    if lang == 'chinese'
+      lang = 'cn'
+    else
+      lang = 'en'
+    if city
+      robot.http("http://aqicn.org/city/#{city}/#{lang}/m/").get() (err, res, body) ->
+        imageURL = body.match /(http:\/\/wgt.aqicn.org\/aqiwgt\/\d+\/[a-zA-Z0-9_.png]+.png)/i
+        if imageURL.length > 0
+          msg.send "#{imageURL[0]}&ralateUid=&language=#{lang}"
+        else
+          msg.send "sorry, there has something wrong..."
+    else
+      msg.send 'sorry, i cannot found it...'
