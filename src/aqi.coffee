@@ -21,43 +21,18 @@ labels = {
 }
 
 module.exports = (robot) ->
-  robot.respond /aqi in\s+([\w//]*)(?:\s+speak (english|chinese))?/i, (msg) ->
-    city = msg.match[1]
-    lang = msg.match[2]
-    # console.log msg.match
-    if lang == 'chinese'
-      lang = 'cn'
-    else
-      lang = 'en'
-    if city
-      msg.send "fetching #{city} page. beo beo beo beo beep beep..."
-      aqicn.getAQIs city, lang, (err, res) ->
-        if err
-          msg.send "sorry, there has something wrong..."
-        else
-          result = [res.aqi, res.level.name, res.level.implication, res.level.statement, res.pm25,
-          res.pm10, res.o3, res.no2, res.so2, res.co, res.time]
-          message = "#{res.city}\n"
-          for label in labels[lang]
-            message = "#{message}#{label}: #{result[labels[lang].indexOf label]}\n"
-          msg.send message
-    else
-      msg.send 'sorry, i cannot found it...'
 
-  robot.respond /aqi image\s+([\w//]*)(?:\s+speak (english|chinese))?/i, (msg) ->
+  robot.respond /aqi in\s+([\w//]*)(?:\s+(en|cn|jp|kr|fr|pl|hk|ru|es))?/i, (msg) ->
     city = msg.match[1]
     lang = msg.match[2]
-    console.log lang
-    if lang == 'chinese'
+    if not lang
       lang = 'cn'
-    else
-      lang = 'en'
     if city
       robot.http("http://aqicn.org/city/#{city}/#{lang}/m/").get() (err, res, body) ->
-        imageURL = body.match /(http:\/\/wgt.aqicn.org\/aqiwgt\/\d+\/[a-zA-Z0-9_.png]+.png)/i
+        imageURL = body.match /(http:\/\/wgt.aqicn.org\/aqiwgt\/\d+\/[a-zA-Z0-9_]+.png)/i
         if imageURL.length > 0
           msg.send "#{imageURL[0]}&ralateUid=&language=#{lang}"
         else
           msg.send "sorry, there has something wrong..."
     else
-      msg.send 'sorry, i cannot found it...'
+      msg.send 'please give me a city.'
