@@ -27,7 +27,7 @@ hubot>> http://wgt.aqicn.org/aqiwgt/20160129/1MzIwNDMwNLI0NNF3Ss3MysxL10_OAwA.pn
 
 Output:
 
-[`img/1MzIwNDMwNLI0NNF3Ss3MysxL10_OAwA.png`](img/1MzIwNDMwNLI0NNF3Ss3MysxL10_OAwA.png)
+![`img/1MzIwNDMwNLI0NNF3Ss3MysxL10_OAwA.png`](img/1MzIwNDMwNLI0NNF3Ss3MysxL10_OAwA.png)
 
 And you can set languange. It have en|cn|jp|es|kr|ru|hk|fr|pl.
 
@@ -38,4 +38,4 @@ hubot>> http://wgt.aqicn.org/aqiwgt/20160129/1MzIwNDMwNLI0MNP3Lc3LTM7QT80DAA.png
 
 Output:
 
-[`img/1MzIwNDMwNLI0MNP3Lc3LTM7QT80DAA.png`](img/1MzIwNDMwNLI0MNP3Lc3LTM7QT80DAA.png)
+![`img/1MzIwNDMwNLI0MNP3Lc3LTM7QT80DAA.png`](img/1MzIwNDMwNLI0MNP3Lc3LTM7QT80DAA.png)
